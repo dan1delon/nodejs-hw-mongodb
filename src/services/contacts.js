@@ -24,10 +24,7 @@ export const updateContact = async (contactId, payload, options = {}) => {
 
   if (!updatedContact || !updatedContact.value) return null;
 
-  return {
-    student: updatedContact.value,
-    isNew: Boolean(updatedContact?.lastErrorObject?.upserted),
-  };
+  return updatedContact.value;
 };
 
 export const deleteContact = async (contactId) => {
