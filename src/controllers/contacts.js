@@ -47,7 +47,7 @@ export const getContactByIdController = async (req, res) => {
   }
 
   res.status(200).json({
-    status: 'success',
+    status: '200',
     message: `Successfully found contact with id ${contactId}!`,
     data: contact,
   });
@@ -58,7 +58,7 @@ export const createContactController = async (req, res) => {
   const createdContact = await createContact(newContact);
 
   res.status(201).json({
-    status: 'success',
+    status: '201',
     message: 'Successfully created contact!',
     data: createdContact,
   });
