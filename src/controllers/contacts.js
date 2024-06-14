@@ -73,7 +73,7 @@ export const patchContactController = async (req, res) => {
   const { contactId } = req.params;
   const patch = req.body;
   const userId = req.user._id;
-  const result = await updateContact(userId, contactId, patch);
+  const result = await updateContact(contactId, userId, patch);
 
   if (!result || !contactId) {
     return res.status(404).json({
