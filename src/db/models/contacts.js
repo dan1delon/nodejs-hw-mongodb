@@ -25,6 +25,10 @@ export const contactsSchema = new Schema(
       required: false,
       default: 'personal',
     },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+    },
   },
   {
     timestamps: true,
