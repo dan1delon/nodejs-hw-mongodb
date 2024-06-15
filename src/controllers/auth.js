@@ -1,3 +1,4 @@
+import createHttpError from 'http-errors';
 import { ONE_DAY } from '../constants/constants.js';
 import {
   loginUser,
@@ -60,10 +61,12 @@ const setupSession = (res, session) => {
 };
 
 export const refreshUserSessionController = async (req, res) => {
-  const session = await refreshUsersSession({
-    sessionId: req.cookies.sessionId,
-    refreshToken: req.cookies.refreshToken,
-  });
+  const { sessionId, refreshToken } = req.cookies;
+  if (!sessionId || !refreshToken) {
+    throw createHttpError(400, 'Required cookies not provided');
+  }
+
+  const session = await refreshUsersSession({ sessionId, refreshToken });
 
   setupSession(res, session);
 
