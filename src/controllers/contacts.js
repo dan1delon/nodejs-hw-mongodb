@@ -75,6 +75,7 @@ export const createContactController = async (req, res) => {
 export const patchContactController = async (req, res) => {
   const { contactId } = req.params;
   const photo = req.file;
+  const userId = req.user._id;
 
   let photoUrl;
 
@@ -87,9 +88,8 @@ export const patchContactController = async (req, res) => {
   }
 
   const patch = req.body;
-  const userId = req.user._id;
-  const result = await updateContact(contactId, {
-    userId,
+
+  const result = await updateContact(contactId, userId, {
     patch,
     photo: photoUrl,
   });
