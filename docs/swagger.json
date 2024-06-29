@@ -187,11 +187,7 @@
                 "type": "object",
                 "required": [
                   "name",
-                  "phoneNumber",
-                  "email",
-                  "isFavourite",
-                  "contactType",
-                  "photo"
+                  "phoneNumber"
                 ],
                 "properties": {
                   "name": {
@@ -298,14 +294,6 @@
             "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "phoneNumber",
-                  "email",
-                  "isFavourite",
-                  "contactType",
-                  "photo"
-                ],
                 "properties": {
                   "name": {
                     "description": "Contacts's name",
